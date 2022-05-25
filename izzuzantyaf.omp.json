@@ -79,13 +79,30 @@
     },
     {
       "type": "prompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "type": "wifi",
+          "style": "powerline",
+          "background": "#8822ee",
+          "foreground": "#222222",
+          "background_templates": [
+            "{{ if (lt .Signal 60) }}#DDDD11{{ else if (lt .Signal 90) }}#DD6611{{ else }}#11CC11{{ end }}"
+          ],
+          "powerline_symbol": "\uE0B0",
+          "template": "\uFAA8 {{ .SSID }} {{ .Signal }}% {{ .ReceiveRate }}Mbps"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
       "alignment": "left",
       "newline": true,
       "segments": [
         {
           "foreground": "#fff",
           "style": "plain",
-          "template": " >_",
+          "template": " \u276f",
           "type": "text"
         }
       ]
