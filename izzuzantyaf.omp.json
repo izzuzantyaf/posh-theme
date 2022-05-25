@@ -4,7 +4,36 @@
     {
       "type": "prompt",
       "alignment": "left",
-      "vertical_offset": 1,
+      "newline": true,
+      "segments": [
+        {
+          "type": "sysinfo",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#ffffff",
+          "background": "#8f43f3",
+          "template": " \ue266 {{ (index .CPU 0).Cores }} Cores CPU ",
+          "properties": {
+            "precision": 2
+          },
+          "style": "powerline"
+        },
+        {
+          "type": "sysinfo",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#ffffff",
+          "background": "#8f43f3",
+          "template": " \uf85a RAM used {{ round .PhysicalPercentUsed .Precision }}% ",
+          "properties": {
+            "precision": 2
+          },
+          "style": "powerline"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
       "segments": [
         {
           "background": "#F07623",
@@ -48,6 +77,15 @@
           "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ if .Version }}\uf487 {{.Version}}{{ end }} {{ if .Name }}{{ .Name }}{{ end }}{{ end }} "
         },
         {
+          "type": "node",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#6CA35E",
+          "fetch_package_manager": true,
+          "template": " \uE718 \uF61A {{ .Full }} "
+        },
+        {
           "background": "#280C2E",
           "background_templates": [
             "{{ if or (.Working.Changed) (.Staging.Changed) }}#7621DE{{ end }}",
@@ -80,19 +118,7 @@
     {
       "type": "prompt",
       "alignment": "right",
-      "segments": [
-        {
-          "type": "wifi",
-          "style": "powerline",
-          "background": "#8822ee",
-          "foreground": "#222222",
-          "background_templates": [
-            "{{ if (lt .Signal 60) }}#DDDD11{{ else if (lt .Signal 90) }}#DD6611{{ else }}#11CC11{{ end }}"
-          ],
-          "powerline_symbol": "\uE0B0",
-          "template": "\uFAA8 {{ .SSID }} {{ .Signal }}% {{ .ReceiveRate }}Mbps"
-        }
-      ]
+      "segments": []
     },
     {
       "type": "prompt",
