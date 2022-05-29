@@ -13,16 +13,14 @@
           "foreground": "#ffffff",
           "template": "{{.Icon}} {{.UserName}}@{{.HostName}} ",
           "leading_diamond": "\ue0b6",
-          "trailing_diamond": "",
-          "powerline_symbol": "\ue0b0"
+          "trailing_diamond": "\ue0b0"
         },
         {
           "type": "path",
-          "style": "diamond",
+          "style": "powerline",
           "background": "#1d4ed8",
           "foreground": "#ffffff",
-          "leading_diamond": "<#374151,#1d4ed8>\ue0b0</>",
-          "trailing_diamond": "",
+          "powerline_symbol": "\ue0b0",
           "template": " {{ .Path }} ",
           "properties": {
             "folder_icon": "\uf6d7",
@@ -36,9 +34,8 @@
           "style": "diamond",
           "background": "#f9fafb",
           "foreground": "#111827",
-          "leading_diamond": "<#1d4ed8,#f9fafb>\ue0b0</>",
+          "leading_diamond": "<transparent,#f9fafb>\ue0b0</>",
           "trailing_diamond": "\ue0b0",
-          "powerline_symbol": "\ue0b0",
           "template": " {{ .HEAD }} {{ .BranchStatus }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0}} \uf692 {{ .StashCount }}{{ end }}{{ if gt .WorktreeCount 0}} \uf1bb {{ .WorktreeCount }}{{ end }} ",
           "properties": {
             "fetch_stash_count": true,
