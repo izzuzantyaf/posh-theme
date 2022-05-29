@@ -1,0 +1,66 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "os",
+          "style": "diamond",
+          "background": "#ffffff",
+          "foreground": "#374151",
+          "template": "{{.Icon}} {{.UserName}}@{{.HostName}} ",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b0"
+        },
+        {
+          "type": "path",
+          "style": "powerline",
+          "background": "#1d4ed8",
+          "foreground": "#ffffff",
+          "powerline_symbol": "\ue0b0",
+          "template": " {{ .Path }} ",
+          "properties": {
+            "folder_icon": "\uf6d7",
+            "folder_separator_icon": "<transparent> \ue0b1 </>",
+            "home_icon": "\uf7db",
+            "style": "agnoster_full"
+          }
+        },
+        {
+          "type": "git",
+          "style": "diamond",
+          "background": "#F07623",
+          "foreground": "#111827",
+          "leading_diamond": "<transparent,#F07623>\ue0b0</>",
+          "trailing_diamond": "\ue0b0",
+          "template": " {{ .HEAD }} {{ .BranchStatus }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0}} \uf692 {{ .StashCount }}{{ end }}{{ if gt .WorktreeCount 0}} \uf1bb {{ .WorktreeCount }}{{ end }} ",
+          "properties": {
+            "fetch_stash_count": true,
+            "fetch_status": true,
+            "fetch_upstream_icon": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "#ffffff",
+          "style": "plain",
+          "template": ">",
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "console_title_template": "{{if .Root}} \u26a1 {{end}}{{.Folder | replace \"~\" \"🏠\"}} @ {{.HostName}}",
+  "final_space": true,
+  "osc99": true,
+  "version": 2
+}
